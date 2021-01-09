@@ -1,5 +1,5 @@
 lambdas_definitions = {
-    "hello-world" = {
+    "helloworld" = {
         lambda_code_bucket = "anderson-arendt-terraform-backend"
         lambda_zip_path = "v1.zip"
         handle_path = "src/helloWorld.handle"
@@ -7,13 +7,13 @@ lambdas_definitions = {
         method = "GET"
         path = "helloworld"
     },
-    "hello-message" = {
+    "hellomessage" = {
         lambda_code_bucket = "anderson-arendt-terraform-backend"
         lambda_zip_path = "v1.zip"
         handle_path = "src/helloMessage.handle"
         runtime = "nodejs12.x"
         method = "POST"
-        path = "helloworld"
+        path = "hellomessage"
     }
 }
 
