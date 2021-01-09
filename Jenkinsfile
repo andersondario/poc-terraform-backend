@@ -34,22 +34,26 @@ pipeline {
             }
             stage ('Deploy DEV') { 
                 steps {
+                    sh "zip -r v1.zip ."
+                    sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
+                    sh "rm v1.zip"
+
                     dir("terraform-infrastructure/applications/${APPLICATION_INFRA_NAME}") {
                         catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
                             sh "terraform init"
                             sh "terraform workspace new dev"
                             sh "terraform workspace select dev"
                         }
-
-                        sh "zip -r v1.zip ."
-                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
-                        sh "rm v1.zip"
                         sh "terraform apply -var-file='${WORKSPACE}/env/dev.tfvars' -auto-approve"
                     }
                 }
             }
             stage ('Deploy HML') { 
                 steps {
+                    sh "zip -r v1.zip ."
+                    sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
+                    sh "rm v1.zip"
+
                     dir("terraform-infrastructure/applications/${APPLICATION_INFRA_NAME}") {
                         catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
                             sh "terraform init"
@@ -57,9 +61,6 @@ pipeline {
                             sh "terraform workspace select hml"
                         }
 
-                        sh "zip -r v1.zip ."
-                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
-                        sh "rm v1.zip"
                         sh "terraform apply -var-file='${WORKSPACE}/env/hml.tfvars' -auto-approve"
                     }
                 }
@@ -71,6 +72,11 @@ pipeline {
             }
             stage ('Deploy PRD') { 
                 steps {
+                    sh "zip -r v1.zip ."
+                    sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
+                    sh "rm v1.zip"
+
+
                     dir("terraform-infrastructure/applications/${APPLICATION_INFRA_NAME}") {
                         catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
                             sh "terraform init"
@@ -78,9 +84,6 @@ pipeline {
                             sh "terraform workspace select prd"
                         }
 
-                        sh "zip -r v1.zip ."
-                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
-                        sh "rm v1.zip"
                         sh "terraform apply -var-file='${WORKSPACE}/env/prd.tfvars' -auto-approve"
                     }
                 }
