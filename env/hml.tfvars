@@ -1,19 +1,19 @@
 lambdas_definitions = {
     "hello-world" = {
-        lambda_code_bucket = "oioioi-terraform-backend"
+        lambda_code_bucket = "anderson-arendt-terraform-backend"
         lambda_zip_path = "v1.zip"
         handle_path = "src/helloWorld.handle"
         runtime = "nodejs12.x"
         method = "GET"
-        path = "hello/world"
+        path = "helloworld"
     },
     "hello-message" = {
-        lambda_code_bucket = "oioioi-terraform-backend"
+        lambda_code_bucket = "anderson-arendt-terraform-backend"
         lambda_zip_path = "v1.zip"
         handle_path = "src/helloMessage.handle"
         runtime = "nodejs12.x"
         method = "POST"
-        path = "hello/message"
+        path = "helloworld"
     }
 }
 

@@ -5,7 +5,7 @@ lambdas_definitions = {
         handle_path = "src/helloWorld.handle"
         runtime = "nodejs12.x"
         method = "GET"
-        path = "hello-world"
+        path = "helloworld"
     },
     "hello-message" = {
         lambda_code_bucket = "anderson-arendt-terraform-backend"
@@ -13,7 +13,7 @@ lambdas_definitions = {
         handle_path = "src/helloMessage.handle"
         runtime = "nodejs12.x"
         method = "POST"
-        path = "hello-message"
+        path = "helloworld"
     }
 }
 
