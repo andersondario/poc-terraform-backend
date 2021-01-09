@@ -42,7 +42,7 @@ pipeline {
                         }
 
                         sh "zip -r v1.zip ."
-                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}-dev"
+                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
                         sh "rm v1.zip"
                         sh "terraform apply -var-file='${WORKSPACE}/env/dev.tfvars' -auto-approve"
                     }
@@ -58,7 +58,7 @@ pipeline {
                         }
 
                         sh "zip -r v1.zip ."
-                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}-hml"
+                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
                         sh "rm v1.zip"
                         sh "terraform apply -var-file='${WORKSPACE}/env/hml.tfvars' -auto-approve"
                     }
@@ -79,7 +79,7 @@ pipeline {
                         }
 
                         sh "zip -r v1.zip ."
-                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}-prd"
+                        sh "aws s3 cp v1.zip s3://${APPLICATION_NAME}"
                         sh "rm v1.zip"
                         sh "terraform apply -var-file='${WORKSPACE}/env/prd.tfvars' -auto-approve"
                     }
