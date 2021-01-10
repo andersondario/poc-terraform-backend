@@ -42,8 +42,8 @@ pipeline {
                         catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
                             sh "terraform init"
                             sh "terraform workspace new dev"
-                            sh "terraform workspace select dev"
                         }
+                        sh "terraform workspace select dev"
                         sh "terraform apply -var-file='${WORKSPACE}/env/dev.tfvars' -auto-approve"
                     }
                 }
@@ -58,9 +58,8 @@ pipeline {
                         catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
                             sh "terraform init"
                             sh "terraform workspace new hml"
-                            sh "terraform workspace select hml"
                         }
-
+                        sh "terraform workspace select hml"
                         sh "terraform apply -var-file='${WORKSPACE}/env/hml.tfvars' -auto-approve"
                     }
                 }
