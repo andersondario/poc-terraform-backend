@@ -19,7 +19,5 @@ lambdas_definitions = {
 
 application_name = "anderson-arendt-terraform-backend"
 
-api_base_path = "minha-oi"
-api_version = "v1"
-
 region = "us-east-1"
+account_id = "167947257750"
